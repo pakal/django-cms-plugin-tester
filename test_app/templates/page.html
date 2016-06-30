@@ -1,0 +1,15 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<html>
+    <head>
+        <title>DJANGO CMS PLUGIN TESTER</title>
+        {% render_block "css" %}
+    </head>
+    <body>
+        {% cms_toolbar %}
+        <h1>Here is you content, below:</h1>
+        <div style="border: 1px solid blue">
+            {% placeholder "content" %}
+        </div>
+        {% render_block "js" %}
+    </body>
+</html>

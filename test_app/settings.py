@@ -36,10 +36,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    
     'cms', 
     'menus',
     'mptt',
     'treebeard',
+    'sekizai',
+    
+    'test_app',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -50,6 +54,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 ROOT_URLCONF = 'test_app.urls'
@@ -117,3 +126,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CMS_TEMPLATES = (
+    ## Customize this
+    ('page.html', 'Page'),
+)
