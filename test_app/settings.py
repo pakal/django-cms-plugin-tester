@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'cms', 
+    'menus',
     'mptt',
     'treebeard',
 )
@@ -62,7 +63,7 @@ WSGI_APPLICATION = 'test_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'sqlite3.db'),
     }
 }
 
