@@ -48,6 +48,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -80,8 +81,10 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en'
+
 LANGUAGES = (
-    ('en', 'en'),
+    ('en', 'EN'),
+    ('fr', 'FR'),
 )
 
 TIME_ZONE = 'UTC'
@@ -131,3 +134,28 @@ CMS_TEMPLATES = (
     ## Customize this
     ('page.html', 'Page'),
 )
+
+CMS_LANGUAGES = {
+    ## Customize this
+    1: [
+        {
+            'redirect_on_fallback': True,
+            'code': 'fr',
+            'hide_untranslated': False,
+            'public': True,
+            'name': 'FR',
+        },
+        {
+            'redirect_on_fallback': True,
+            'code': 'en',
+            'hide_untranslated': False,
+            'public': True,
+            'name': 'EN',
+        },
+    ],
+    'default': {
+        'redirect_on_fallback': True,
+        'public': True,
+        'hide_untranslated': False,
+    },
+}
